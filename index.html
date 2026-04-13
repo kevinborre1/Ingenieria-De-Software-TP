@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+   <meta charset="utf-8" />
+
+   <link
+   href="https://fonts.googleapis.com/css2?family=Open+Sans"
+   rel="stylesheet"
+   type="text/css" />
+  
+   <link
+   href="style.css"
+   rel="stylesheet"
+   type="text/css" />
+
+   <title>Talleres centro cultural</title>
+
+   <script src="main.js" defer></script>
+
+  </head>
+
+  <body>
+    <h1 id="Titulo">Talleres del centro cultural</h1>
+
+    <div class="contenedor-principal">
+     <div class="columna-izquierda">
+        <button id="btnAbrir">Registrarse</button>
+     </div>
+     <div class="columna-derecha">
+        <h1>Titulo de mi seccion</h1>
+        <p>Aqui va todo el texto que quieras que aparezca a la derecha...</p>
+     </div>
+    </div>
+
+    <div id="miOculto" class="oculto">
+     <div class="contenido-oculto">
+      <span class="cerrar"></span>
+      <h2>Registro</h2>
+      <form>
+       <label for="campo_nombre">Nombre</label>
+       <br>
+       <input id="campo_nombre" name="nombre" type="text" required>
+       <br>
+       <br>
+       <label for="campo_telefono">Telefono</label>
+       <br>
+       <input id="campo_telefono" name="telefono" type="tel" required>
+       <br>
+       <br>
+       <label for="campo_mail">Mail</label>
+       <br>
+       <input id="campo_mail" name="email" type="mail" required>
+       <br>
+       <br>
+       <button type="submit">Enviar</button>
+     </form>
+    </div>
+   </div>
+  </body>
+</html>
