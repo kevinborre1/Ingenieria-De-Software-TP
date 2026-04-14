@@ -1,11 +1,19 @@
 h1 {
   text-align: center;
+  font-size: 50px;
   color: blue;
+
 }
 
 h1:hover {
   color: green;
 }
+
+#buscador_talleres {
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+}
+
 
 .contenedor-principal {
     min-height: 100vh;
@@ -16,7 +24,7 @@ h1:hover {
 }
 
 .columna-izquierda {
-    flex: 0 0 300px; /* El gif tendrá un ancho fijo de 300px (puedes cambiarlo) */
+    flex: 0 0 300px; /* El gif tendrï¿½ un ancho fijo de 300px (puedes cambiarlo) */
     border-right: 2px solid black;
     height: 100vh;
 }
@@ -43,7 +51,7 @@ h1:hover {
 }
 
 
-/* Botón de cerrar (X) */
+/* Botï¿½n de cerrar (X) */
 .cerrar {
   float: right;
   font-size: 28px;
@@ -51,7 +59,7 @@ h1:hover {
 }
 
 html {
-  font-size: 10px; /* px quiere decir 'píxeles': el tamaño de la fuente base es ahora de 10 píxeles de altura */
+  font-size: 10px; /* px quiere decir 'pï¿½xeles': el tamaï¿½o de la fuente base es ahora de 10 pï¿½xeles de altura */
   font-family:
     "Open Sans", sans-serif; /* Este debe ser el resto del resultado que obtuviste de Google fonts */
 }

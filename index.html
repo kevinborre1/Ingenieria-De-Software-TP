@@ -16,6 +16,8 @@
    <title>Talleres centro cultural</title>
 
    <script src="main.js" defer></script>
+   <script src="BuscarTallerEnJson.js" defer></script>
+   
 
   </head>
 
@@ -25,16 +27,24 @@
     <div class="contenedor-principal">
      <div class="columna-izquierda">
         <button id="btnAbrir">Registrarse</button>
-     </div>
+      </div>
      <div class="columna-derecha">
         <h1>Titulo de mi seccion</h1>
-        <p>Aqui va todo el texto que quieras que aparezca a la derecha...</p>
-     </div>
+        <form>
+          <label id="buscador_talleres" for="gsearch">Buscar talleres:</label>
+          <input type="search" id="gsearch" name="gsearch">
+          <button id="btn_buscar_taller" type="submit">Buscar</button>
+        </form>
+        
+        <br>
+        <ol id="lista-talleres"> </ol>
+      </div>
+    
+    
     </div>
-
     <div id="miOculto" class="oculto">
      <div class="contenido-oculto">
-      <span class="cerrar"></span>
+      <span class="cerrar">&times;</span>
       <h2>Registro</h2>
       <form>
        <label for="campo_nombre">Nombre</label>
