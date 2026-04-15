@@ -1,65 +1,199 @@
-h1 {
-  text-align: center;
-  font-size: 50px;
-  color: blue;
-
+/* Reset para eliminar espacios raros */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-h1:hover {
-  color: green;
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
 }
 
-#buscador_talleres {
-  font-size: 20px;
-  color: rgb(0, 0, 0);
+/* Título Principal */
+#Titulo {
+    background-color: #ffffff;
+    padding: 30px 0;
+    text-align: center;
+    color: #2c3e50;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    font-size: 2.5rem;
+    transition: all 0.3s ease;
 }
 
+#Titulo:hover {
+    color: #27ae60;
+    letter-spacing: 1px;
+}
 
+/* Contenedor Principal */
 .contenedor-principal {
     min-height: 100vh;
-    display: flex; /* Alinea los hijos en una fila por defecto */
-    align-items: flex-start; /* Alinea el contenido arriba */
-    gap: 20px; /* Espacio opcional entre el gif y el texto */
+    display: flex; 
+    background: transparent;
     width: 100%;
 }
 
+/* Columna Izquierda (Diseño más limpio) */
 .columna-izquierda {
-    flex: 0 0 300px; /* El gif tendr� un ancho fijo de 300px (puedes cambiarlo) */
-    border-right: 2px solid black;
+    flex: 0 0 250px;
+    border-right: 1px solid #dee2e6;
     height: 100vh;
+    padding: 30px 15px;
+    background-color: #ffffff;
 }
 
+/* Botón Registrarse (A la izquierda pero lindo) */
+#btnAbrir {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
+}
+
+#btnAbrir:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Columna Derecha */
+.columna-derecha {
+    flex: 1;
+    padding: 40px;
+}
+
+.columna-derecha h1 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    background: none;
+    box-shadow: none;
+    text-align: left;
+    padding: 0;
+}
+
+/* Buscador y Formulario */
+form {
+    margin-bottom: 30px;
+}
+
+#buscador_talleres {
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#gsearch {
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    width: 300px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#gsearch:focus {
+    border-color: #3498db;
+}
+
+#btn_buscar_taller {
+    padding: 10px 20px;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+#btn_buscar_taller:hover {
+    background-color: #1a252f;
+}
+
+/* Lista de Talleres (estilo tarjetas) */
+#lista-talleres {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Si el JS inserta <li> dentro del <ol> */
+#lista-talleres li {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-left: 4px solid #3498db;
+}
+
+/* Modal */
 .oculto {
-  display: none; /* Oculto por defecto */
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5); /* Fondo negro con transparencia */
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
 }
 
-/* La caja blanca del formulario */
 .contenido-oculto {
-  background-color: white;
-  margin: 15% auto;
-  padding: 20px;
-  border-radius: 8px;
-  width: 300px;
-  text-align: center;
+    background-color: white;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 12px;
+    width: 350px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
+.contenido-oculto h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
 
-/* Bot�n de cerrar (X) */
+.contenido-oculto input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contenido-oculto button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
 .cerrar {
-  float: right;
-  font-size: 28px;
-  cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 24px;
+    color: #aaa;
+    transition: color 0.2s;
 }
 
-html {
-  font-size: 10px; /* px quiere decir 'p�xeles': el tama�o de la fuente base es ahora de 10 p�xeles de altura */
-  font-family:
-    "Open Sans", sans-serif; /* Este debe ser el resto del resultado que obtuviste de Google fonts */
+.cerrar:hover {
+    color: #e74c3c;
 }
