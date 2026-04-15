@@ -7,8 +7,8 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
+    background-color:#679ee7; 
+    color: #20242c;
     line-height: 1.6;
 }
 
@@ -17,7 +17,7 @@ body {
     background-color: #ffffff;
     padding: 30px 0;
     text-align: center;
-    color: #2c3e50;
+    color: #006fdd;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     font-size: 2.5rem;
     transition: all 0.3s ease;
@@ -205,6 +205,7 @@ form {
 
 .cerrar:hover {
     color: #e74c3c;
+}
 
 html {
   font-size: 10px; /* px quiere decir 'p�xeles': el tama�o de la fuente base es ahora de 10 p�xeles de altura */
