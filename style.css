@@ -1,18 +1,17 @@
 /* Reset para eliminar espacios raros */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
-    font-family: 'Open Sans', sans-serif;
-    background-color:#c1d8f7; 
-    color: #20242c;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7f6; 
+    color: #333;
     line-height: 1.6;
 }
 
-/* Título Principal */
 #Titulo {
     background-color: #ccc9f8;
     padding: 30px 0;
@@ -28,7 +27,6 @@ body {
     letter-spacing: 1px;
 }
 
-/* Contenedor Principal */
 .contenedor-principal {
     min-height: 100vh;
     display: flex; 
@@ -36,7 +34,6 @@ body {
     width: 100%;
 }
 
-/* Columna Izquierda (Diseño más limpio) */
 .columna-izquierda {
     flex: 0 0 250px;
     border-right: 1px solid #dee2e6;
@@ -45,27 +42,33 @@ body {
     background-color: #ffffff;
 }
 
-/* Botón Registrarse (A la izquierda pero lindo) */
+
 #btnAbrir {
-    width: 100%;
-    padding: 12px 20px;
+    width: 90%;          
+    padding: 20px;      
+    font-size: 1.2rem;   
+    
     background-color: #3498db;
     color: white;
     border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: 600;
+    border-radius: 12px; 
+    font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-    box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
+    
+    display: block;      
+    margin: 20px auto;  
+    
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    transition: all 0.3s ease;
 }
+
 
 #btnAbrir:hover {
     background-color: #2980b9;
-    transform: translateY(-2px);
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4); 
 }
 
-/* Columna Derecha */
 .columna-derecha {
     flex: 1;
     padding: 40px;
@@ -81,24 +84,29 @@ body {
     padding: 0;
 }
 
-/* Buscador y Formulario */
 form {
     margin-bottom: 30px;
+    display: flex; 
+    max-width: 400px;
+    margin-bottom: 20px;
 }
 
 #buscador_talleres {
     font-size: 16px;
     font-weight: bold;
-    display: block;
+    display: flex; 
+    max-width: 400px;
     margin-bottom: 10px;
+
 }
 
 #gsearch {
+   flex-grow: 1;
     padding: 10px 15px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    width: 300px;
-    outline: none;
+    border: 1px solid #ddd;
+    border-radius: 20px 0 0 20px; 
+    font-size: 1rem;
+    outline: none; 
     transition: border-color 0.3s;
 }
 
@@ -107,20 +115,20 @@ form {
 }
 
 #btn_buscar_taller {
-    padding: 10px 20px;
-    background-color: #2c3e50;
+  padding: 10px 20px;
+    background-color: #2c3e50; 
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 0 20px 20px 0;
     cursor: pointer;
-    margin-left: 5px;
+    margin-left: -1px; 
 }
+
 
 #btn_buscar_taller:hover {
     background-color: #1a252f;
 }
 
-/* Lista de Talleres (estilo tarjetas) */
 #lista-talleres {
     list-style: none;
     display: grid;
@@ -128,7 +136,6 @@ form {
     gap: 20px;
 }
 
-/* Si el JS inserta <li> dentro del <ol> */
 #lista-talleres li {
     background: white;
     padding: 20px;
@@ -137,7 +144,6 @@ form {
     border-left: 4px solid #3498db;
 }
 
-/* Modal */
 .oculto {
     display: none;
     position: fixed;
@@ -218,7 +224,7 @@ html {
   width: 700px;
 }
 
-/* Estilos para los talleres en la lista */
+
 .taller-item {
   cursor: pointer;
   padding: 8px;
@@ -228,7 +234,7 @@ html {
 }
 
 .taller-item:hover {
-  background-color: #333333; /* Gris oscuro */
+  background-color: #333333; 
 }
 
 .taller-item:hover strong {
