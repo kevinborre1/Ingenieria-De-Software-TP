@@ -2,7 +2,7 @@ const oculto = document.getElementById("miOculto");
 const btn = document.getElementById("btnAbrir");
 const btnSiguiente = document.getElementById("btnSiguiente");
 const ocultoTaller = document.getElementById("form-talleres");
-const seccionRegistro = document.getElementById("seccion-registro"); // Asegúrate de tener este ID en tu HTML
+const seccionRegistro = document.getElementById("seccion-registro"); 
 const btnEnviar = document.getElementById("btnEnviar");
 const span = document.getElementsByClassName("cerrar")[0];
 
@@ -14,9 +14,8 @@ btn.onclick = function () {
   ocultoTaller.style.display = "none";
 }
 
-// 2. IR AL FORMULARIO DE TALLERES (La clave está en el 'event')
 btnSiguiente.onclick = function (event) {
-  event.preventDefault(); // <--- ESTO EVITA QUE LA PÁGINA SE RECARGUE
+  event.preventDefault(); // 
   
   if(seccionRegistro) seccionRegistro.style.display = "none"; 
   ocultoTaller.style.display = "block";   
@@ -24,7 +23,7 @@ btnSiguiente.onclick = function (event) {
 
 // 3. Finalizar y cerrar
 btnEnviar.onclick = function (event) {
-  event.preventDefault(); // También aquí para que el alert no se cierre solo
+  event.preventDefault(); 
   alert("Taller registrado con éxito");
   oculto.style.display = "none";
 }
