@@ -56,24 +56,35 @@
     <div id="miOculto" class="oculto">
      <div class="contenido-oculto">
       <span class="cerrar">&times;</span>
-      <h2>Registro</h2>
-      <form>
-       <label for="campo_nombre">Nombre</label>
-       <br>
-       <input id="campo_nombre" name="nombre" type="text" required>
-       <br>
-       <br>
-       <label for="campo_telefono">Telefono</label>
-       <br>
-       <input id="campo_telefono" name="telefono" type="tel" required>
-       <br>
-       <br>
-       <label for="campo_mail">Mail</label>
-       <br>
-       <input id="campo_mail" name="email" type="mail" required>
-       <br>
-       <br>
-       <button type="submit">Enviar</button>
+      <div id="seccion-registro">
+        <h2>Registro</h2>
+        <form id="form-usuario">
+            <label for="campo_nombre">Nombre</label><br>
+            <input id="campo_nombre" type="text" required><br><br>
+            
+            <label for="campo_telefono">Telefono</label><br>
+            <input id="campo_telefono" type="tel" required><br><br>
+            
+            <label for="campo_mail">Mail</label><br>
+            <input id="campo_mail" type="email" required><br><br>
+            
+            <button type="submit" id="btnSiguiente">Siguiente</button>
+        </form>
+    </div>
+
+    <div id="form-talleres" style="display: none;">
+        <h2>Información del Taller</h2>
+            <label for="campo_taller">Taller</label><br>
+            <input id="campo_taller" type="text" required><br><br>
+            
+            <label for="campo_rubro">Rubro</label><br>
+            <input id="campo_rubro" type="text" required><br><br>
+            
+            <label for="campo_ubicacion">Ubicación</label><br>
+            <input id="campo_ubicacion" type="text" required><br><br>
+
+            <button type="submit" id="btnEnviar">Enviar</button>
+        </div>
      </form>
     </div>
    </div>
