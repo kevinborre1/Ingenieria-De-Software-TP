@@ -32,7 +32,7 @@ h1:hover {
 .oculto {
   display: none; /* Oculto por defecto */
   position: fixed;
-  z-index: 1;
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
@@ -62,4 +62,26 @@ html {
   font-size: 10px; /* px quiere decir 'p�xeles': el tama�o de la fuente base es ahora de 10 p�xeles de altura */
   font-family:
     "Open Sans", sans-serif; /* Este debe ser el resto del resultado que obtuviste de Google fonts */
+}
+
+#mapa { 
+  height: 700px; 
+  width: 700px;
+}
+
+/* Estilos para los talleres en la lista */
+.taller-item {
+  cursor: pointer;
+  padding: 8px;
+  margin: 4px 0;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.taller-item:hover {
+  background-color: #333333; /* Gris oscuro */
+}
+
+.taller-item:hover strong {
+  color: white;
 }
