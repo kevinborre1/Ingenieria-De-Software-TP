@@ -44,7 +44,7 @@ function mostrarTalleres(datos) {
         li.className = "taller-item";
         li.dataset.id = taller.id;
         // Agregamos la ubicación al texto para que coincida con tu intención original
-        li.innerHTML = "<strong>" + taller.nombre + "</strong> - " + (taller.ubicacion ? taller.ubicacion : "Sin ubicación");
+        li.innerHTML = "<strong>" + taller.nombre + "</strong>";
         lista.appendChild(li);
     });
 }
