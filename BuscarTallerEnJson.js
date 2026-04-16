@@ -1,15 +1,14 @@
-// 1. Referencias a los elementos del DOM
-const formulario = document.querySelector("form");
+const buscador = document.getElementById("form_busqueda");
 const inputBusqueda = document.getElementById("gsearch");
 const lista = document.getElementById("lista-talleres");
+console.log("¿La lista existe?:", lista); // Si sale 'null', el problema es el ID o el orden del script
 
-// Mantenemos los datos con ubicaciones aquí arriba para que estén disponibles globalmente
 const datos = [
     { "nombre": "Taller de Carpintería", "id": 1, "ubicacion": ["-34.514972", "-58.709139"] },
     { "nombre": "Taller de Programación", "id": 2, "ubicacion": ["-34.534114", "-58.701454"] }
 ];
 
-formulario.addEventListener("submit", (e) => {
+buscador.addEventListener("submit", (e) => {
     e.preventDefault(); // Evita que la página se recargue
 
     const terminoBusqueda = inputBusqueda.value.toLowerCase();
