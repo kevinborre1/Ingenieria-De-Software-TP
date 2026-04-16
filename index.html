@@ -54,40 +54,43 @@
     
     </div>
     <div id="miOculto" class="oculto">
-     <div class="contenido-oculto">
-      <span class="cerrar">&times;</span>
-      <div id="seccion-registro">
-        <h2>Registro</h2>
-        <form id="form-usuario">
-            <label for="campo_nombre">Nombre</label><br>
-            <input id="campo_nombre" type="text" required><br><br>
+    <div class="contenido-oculto">
+        <span class="cerrar">&times;</span>
+        
+        <form id="form-registro-completo">
             
-            <label for="campo_telefono">Telefono</label><br>
-            <input id="campo_telefono" type="tel" required><br><br>
-            
-            <label for="campo_mail">Mail</label><br>
-            <input id="campo_mail" type="email" required><br><br>
-            
-            <button type="submit" id="btnSiguiente">Siguiente</button>
+            <div id="paso-proveedor">
+                <h2>Registro de Proveedor</h2>
+                <label for="campo_nombre">Nombre</label><br>
+                <input id="campo_nombre" type="text" required><br><br>
+                
+                <label for="campo_telefono">Teléfono</label><br>
+                <input id="campo_telefono" type="tel" required><br><br>
+                
+                <label for="campo_mail">Mail</label><br>
+                <input id="campo_mail" type="email" required><br><br>
+                
+                <button type="button" id="btnSiguiente">Siguiente</button>
+            </div>
+
+            <div id="paso-taller" style="display: none;">
+                <h2>Información del Taller</h2>
+                <label for="campo_taller">Taller</label><br>
+                <input id="campo_taller" type="text" required><br><br>
+                
+                <label for="campo_rubro">Rubro</label><br>
+                <input id="campo_rubro" type="text" required><br><br>
+                
+                <label for="campo_ubicacion">Ubicación</label><br>
+                <input id="campo_ubicacion" type="text" required><br><br>
+
+                <button type="button" id="btnVolver">Atrás</button>
+                <button type="submit" id="btnEnviar">Enviar Registro</button>
+            </div>
+
         </form>
     </div>
-    <div id="form-talleres">
-      <form id="form-talleres"">
-        <h2>Información del Taller</h2>
-            <label for="campo_taller">Taller</label><br>
-            <input id="campo_taller" type="text" required><br><br>
-            
-            <label for="campo_rubro">Rubro</label><br>
-            <input id="campo_rubro" type="text" required><br><br>
-            
-            <label for="campo_ubicacion">Ubicación</label><br>
-            <input id="campo_ubicacion" type="text" required><br><br>
-
-            <button type="submit" id="btnEnviar">Enviar</button>
-       </form>
-    </div>
-
-    </div>
+</div>
    </div>
   </body>
 </html>

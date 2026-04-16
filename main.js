@@ -1,41 +1,44 @@
-const oculto = document.getElementById("miOculto");
-const btn = document.getElementById("btnAbrir");
-const btnSiguiente = document.getElementById("btnSiguiente");
-const ocultoTaller = document.getElementById("form-talleres");
-const seccionRegistro = document.getElementById("seccion-registro"); 
-const btnEnviar = document.getElementById("btnEnviar");
-const span = document.getElementsByClassName("cerrar")[0];
+// Referencias a los elementos del DOM
+const btnAbrir = document.getElementById('btnAbrir');
+const miOculto = document.getElementById('miOculto');
+const btnCerrar = document.querySelector('.cerrar');
 
-// 1. Abrir el modal
-btn.onclick = function () {
-  oculto.style.display = "block";
-  // Resetear la vista por si acaso
-  if(seccionRegistro) seccionRegistro.style.display = "block";
-  ocultoTaller.style.display = "none";
-}
+const paso1 = document.getElementById('paso-proveedor');
+const paso2 = document.getElementById('paso-taller');
+const btnSiguiente = document.getElementById('btnSiguiente');
+const btnVolver = document.getElementById('btnVolver');
+const formulario = document.getElementById('form-registro-completo');
 
-btnSiguiente.onclick = function (event) {
-  event.preventDefault(); // 
-  
-  if(seccionRegistro) seccionRegistro.style.display = "none"; 
-  ocultoTaller.style.display = "block";   
-}
+// Abrir el formulario al tocar "Registrarse"
+btnAbrir.addEventListener('click', () => {
+    miOculto.style.display = 'block';
+});
 
-// 3. Finalizar y cerrar
-btnEnviar.onclick = function (event) {
-  event.preventDefault(); 
-  alert("Taller registrado con éxito");
-  oculto.style.display = "none";
-}
+// Cerrar el formulario al tocar la "X"
+btnCerrar.addEventListener('click', () => {
+    miOculto.style.display = 'none';
+});
 
-// Cerrar con la (X)
-span.onclick = function () {
-  oculto.style.display = "none";
-}
+// Cerrar si hacen clic fuera del cuadro blanco
+window.addEventListener('click', (event) => {
+    if (event.target == miOculto) {
+        miOculto.style.display = 'none';
+    }
+});
 
-// Cerrar al tocar fuera
-window.onclick = function (event) {
-  if (event.target == oculto) {
-    oculto.style.display = "none";
-  }
-}
+
+btnSiguiente.addEventListener('click', () => {
+    paso1.style.display = 'none';
+    paso2.style.display = 'block';
+});
+
+btnVolver.addEventListener('click', () => {
+    paso2.style.display = 'none';
+    paso1.style.display = 'block';
+});
+
+formulario.addEventListener('submit', (e) => {
+    e.preventDefault();
+    console.log("¡Datos enviados!");
+    miOculto.style.display = 'none'; // Opcional: cierra al terminar
+});
