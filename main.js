@@ -84,6 +84,12 @@ btnVolver2.addEventListener('click', () => {
   paso2.style.display = 'block';
 });
 
+const inputLogo = document.getElementById("campo_logo");
+inputLogo.addEventListener("change", function () {
+    const archivo = this.files[0];
+    console.log("Archivo seleccionado:", archivo);
+});
+
 buscador.addEventListener('submit', (e) => {
   e.preventDefault();
   console.log("¡Datos enviados!");
