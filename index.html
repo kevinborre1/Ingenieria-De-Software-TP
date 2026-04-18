@@ -66,7 +66,7 @@
                 <input id="campo_nombre" type="text" required><br><br>
                 
                 <label for="campo_telefono">Teléfono</label><br>
-                <input id="campo_telefono" type="tel" required><br><br>
+                <input id="campo_telefono" type="tel" required pattern="[0-9]+"inputmode="numeric">
                 
                 <label for="campo_mail">Mail</label><br>
                 <input id="campo_mail" type="email" required><br><br>
@@ -90,9 +90,6 @@
 
                 <label for="campo_ubicacion">Ubicación</label><br>
                 <input id="campo_ubicacion" type="text" required><br><br>
-
-                <label for="campo_contacto">Teléfono</label><br>
-                <input id="campo_contacto" type="tel" required pattern="[0-9]+"inputmode="numeric">
 
                 <button type="button" id="btnVolver">Atrás</button>
                 <button type="button" id="btnSiguiente2">Siguiente</button>
