@@ -4,7 +4,6 @@ const inputBusqueda = document.getElementById("gsearch");
 const lista = document.getElementById("lista-talleres");
 console.log("¿La lista existe?:", lista); // Si sale 'null', el problema es el ID o el orden del script
 
-
 buscador.addEventListener("submit", (e) => {
     e.preventDefault(); // Evita que la página se recargue
 
