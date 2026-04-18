@@ -40,7 +40,9 @@ function mostrarTalleres(datos) {
         li.className = "taller-item";
         li.dataset.id = taller.id;
         // Agregamos la ubicación al texto para que coincida con tu intención original
-        li.innerHTML = "<strong>" + taller.nombre + "</strong>";
+        //Esto crea un <img> si existe el logo, sino lo omite
+        let logoHTML = taller.logo ? `<img src="${taller.logo}" alt="${taller.nombre}">` : '';
+        li.innerHTML = `${logoHTML}<strong>${taller.nombre}</strong>`;
         lista.appendChild(li);
     });
 }
