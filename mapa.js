@@ -7,5 +7,11 @@ $(document).ready(function () {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(mapa);
 
+    window.addEventListener('resize', function() {
+    if (mapa) {
+        mapa.invalidateSize(); // Esto obliga al mapa a recalcular su tamaño actual
+    }
+});
+
 
 });
