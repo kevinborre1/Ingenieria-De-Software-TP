@@ -90,7 +90,7 @@ inputLogo.addEventListener("change", function () {
     console.log("Archivo seleccionado:", archivo);
 });
 
-buscador.addEventListener('submit', (e) => {
+formulario.addEventListener('submit', (e) => {
   e.preventDefault();
   console.log("¡Datos enviados!");
   miOculto.style.display = 'none'; // Opcional: cierra al terminar
