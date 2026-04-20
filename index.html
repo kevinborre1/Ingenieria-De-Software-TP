@@ -4,7 +4,7 @@
   
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="jquery-4.0.0.min.js"></script>
+  <script src="jquery-4.0.0.min.js"></script> 
   
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -26,6 +26,10 @@
    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
    crossorigin=""></script>
+
+    <script src="mapa.js" defer></script>
+    <script src="main.js" defer></script>
+    <script type="module" src="BuscarTallerEnJson.js"></script>
     
  
 
@@ -40,7 +44,6 @@
     </div>
      
     <div class="columna-derecha">
-        <h1>Titulo de mi seccion</h1>
         <form id="form_busqueda">
           <label id="buscador_talleres" for="gsearch">Buscar talleres:</label>
           <input type="search" id="gsearch" name="gsearch">
@@ -117,8 +120,6 @@
     </div>
    </div>
     
-    <script src="mapa.js"></script>
-    <script src="main.js"></script>
-    <script type="module" src="BuscarTallerEnJson.js"></script>
+
   </body>
 </html>

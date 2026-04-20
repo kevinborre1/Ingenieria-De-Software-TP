@@ -1,25 +1,22 @@
 import { datos } from "./talleres.js";
+
 const buscador = document.getElementById("form_busqueda");
 const inputBusqueda = document.getElementById("gsearch");
 const lista = document.getElementById("lista-talleres");
-console.log("¿La lista existe?:", lista); // Si sale 'null', el problema es el ID o el orden del script
+
 
 buscador.addEventListener("submit", (e) => {
-    e.preventDefault(); // Evita que la página se recargue
+    e.preventDefault();
 
     const terminoBusqueda = inputBusqueda.value.toLowerCase();
 
     try {
-        // 4. Filtrar los resultados (Usamos los datos globales que tienen ubicación)
         const resultados = datos.filter(taller =>
             taller.nombre.toLowerCase().includes(terminoBusqueda)
         );
 
-        // 5. Mostrar resultados
         mostrarTalleres(resultados);
         agregarEventosTalleres();
-
-        console.log("Talleres encontrados:", resultados);
 
         if (resultados.length === 0) {
             alert("No se encontraron talleres con ese nombre.");
@@ -30,7 +27,6 @@ buscador.addEventListener("submit", (e) => {
     }
 });
 
-// Función para renderizar la lista
 function mostrarTalleres(datos) {
     lista.innerHTML = "";
 
@@ -38,15 +34,16 @@ function mostrarTalleres(datos) {
         const li = document.createElement("li");
         li.className = "taller-item";
         li.dataset.id = taller.id;
-        // Agregamos la ubicación al texto para que coincida con tu intención original
-        //Esto crea un <img> si existe el logo, sino lo omite
-        let logoHTML = taller.logo ? `<img src="${taller.logo}" alt="${taller.nombre}">` : '';
+        li.dataset.descripcion = taller.descripcion; // Agregamos la descripción como un atributo de datos
+
+        // Mantenemos tu lógica de logo
+        let logoHTML = taller.logo ? `<img src="${taller.logo}" alt="" style="width:30px; margin-right:10px;">` : '';
         li.innerHTML = `${logoHTML}<strong>${taller.nombre}</strong>`;
+        mostrarDescripcion(taller, li);
         lista.appendChild(li);
     });
 }
 
-// Función para agregar eventos de clic a los talleres
 function agregarEventosTalleres() {
     const talleresItems = document.querySelectorAll(".taller-item");
 
@@ -54,7 +51,7 @@ function agregarEventosTalleres() {
         item.addEventListener("click", () => {
             const tallerId = parseInt(item.dataset.id, 10);
             const taller = datos.find(t => t.id === tallerId);
-
+            item.classList.remove("taller-seleccionado");
             if (taller) {
                 seleccionarTaller(taller, item);
             }
@@ -63,11 +60,6 @@ function agregarEventosTalleres() {
 }
 
 function seleccionarTaller(taller, elemento) {
-    document.querySelectorAll(".taller-item").forEach(item => {
-        item.classList.remove("seleccionado");
-    });
-
-    elemento.classList.add("seleccionado");
 
     if (typeof mapa !== "undefined" && mapa && taller.ubicacion) {
         const lat = parseFloat(taller.ubicacion[0]);
@@ -75,14 +67,51 @@ function seleccionarTaller(taller, elemento) {
 
         mapa.setView([lat, lng], 17);
 
-        L.marker([lat, lng]).addTo(mapa)
-            .bindPopup("<b>" + taller.nombre + "</b><br>")
-            .openPopup();
+        const marcador = L.marker([lat, lng]).addTo(mapa);
+        marcador.bindPopup("<b>" + taller.nombre + "</b>");
+        marcador.openPopup();
+        marcador.on('click', function (e) {
 
-        console.log("Taller seleccionado: " + taller.nombre + " en coordenadas [" + lat + ", " + lng + "]");
-    } else {
-        console.error("Mapa no disponible o taller sin coordenadas");
+            const previo = document.querySelector('.taller-seleccionado');
+            if (previo) {
+                previo.classList.remove('taller-seleccionado');
+            }
+            elemento.classList.add('taller-seleccionado');
+        });
     }
 }
 
+function mostrarDescripcion(taller, itemDeLista) {
+    itemDeLista.addEventListener("mouseenter", () => {
+        // 1. Creamos el contenedor principal
+        const divInfo = document.createElement("div");
+        divInfo.classList.add("informacion-temporal");
 
+        // 2. Construimos el contenido con HTML para que sea legible
+        divInfo.innerHTML = `
+    <br>
+    <p class="info-desc"><strong>Descripción:</strong> ${taller.descripcion || "Sin descripción."}</p>
+        <div class="info-grid">
+            <span><strong>📍 Ubicación:</strong> ${taller.ubicacion_nombre || "Sin ubicación detallada."}</span>
+            <span><strong>⏰ Horarios:</strong> ${taller.horarios}</span>
+            <span><strong>🏷️ Rubro:</strong> ${taller.rubro}</span>
+            <span><strong>📧 Contacto:</strong> ${taller.contacto.email}</span>
+        </div>
+        <div class="info-redes">
+            <strong>📱 Redes:</strong> 
+            ${Object.entries(taller.contacto.redes).map(([red, handle]) => `<span>${red}: ${handle}</span>`).join(" | ")}
+        </div>
+    `;
+
+        // 3. Lo agregamos
+        itemDeLista.append(divInfo);
+    });
+
+    itemDeLista.addEventListener("mouseleave", () => {
+        // 3. Ahora sí podemos encontrarlo por su clase para borrarlo
+        const descripcion = itemDeLista.querySelector(".informacion-temporal");
+        if (descripcion) {
+            descripcion.remove(); // Más directo que removeChild
+        }
+    });
+}
