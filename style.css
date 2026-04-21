@@ -11,14 +11,37 @@ body {
     color: #333;
     line-height: 1.6;
 }
+#titulo_registrarse {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px; /* Añadimos padding a los lados para que el botón no toque el borde */
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 20px;
+}
 
+#titulo_registrarse::before {
+    content: "";
+    flex: 0.3;
+}
+#centro_cultural {
+    text-align: left;        /* Cambiado de center a left */
+    margin: 10px 0 5px 20px; /* Margen: arriba, derecha, abajo, izquierda */
+    color: #888;             /* Un gris un poco más suave para que no compita con el título */
+    font-size: 1.4rem;         /* Tamaño reducido para que parezca un sobre-título */
+    font-weight: 500;
+    text-transform: uppercase; /* Opcional: le da un toque más profesional */
+    letter-spacing: 1px;
+}
 #Titulo {
-    background-color: #ccc9f8;
-    padding: 30px 0;
+    flex: 2;          
     text-align: center;
     color: #006fdd;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.705);
     font-size: 2.5rem;
+    margin: 0;        /* Quitamos márgenes que puedan moverlo */
+    padding: 0;       /* El padding lo maneja el contenedor padre */
+    box-shadow: none; /* Quitamos la sombra aquí porque ya la tiene el padre */
     transition: all 0.3s ease;
 }
 
@@ -27,25 +50,22 @@ body {
     letter-spacing: 1px;
 }
 
+
 .contenedor-principal {
     min-height: 100vh;
     display: flex; 
     background: transparent;
     width: 100%;
-    /* FIX: permite que los hijos se envuelvan en móvil */
     flex-wrap: wrap;
 }
 
 .columna-izquierda {
-    flex: 0 0 250px;
-    border-right: 1px solid #dee2e6;
-    height: 100vh;
-    padding: 30px 15px;
-    background-color: #ffffff;
+    flex: 1;
+    padding: 40px;
+    min-width: 0;
 }
-
 #btnAbrir {
-    width: 90%;          
+    width: 10%;             
     padding: 20px;      
     font-size: 1.2rem;   
     background-color: #3498db;
@@ -55,7 +75,7 @@ body {
     font-weight: bold;
     cursor: pointer;
     display: block;      
-    margin: 20px auto;  
+    margin: 20px 20px 20px 10px; /* Arriba: 20px, Derecha: 10px, Abajo: 20px, Izquierda: 10px */ 
     box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
     transition: all 0.3s ease;
 }
@@ -69,7 +89,6 @@ body {
 .columna-derecha {
     flex: 1;
     padding: 40px;
-    /* FIX: evita que se desborde */
     min-width: 0;
 }
 
@@ -84,7 +103,6 @@ body {
 }
 
 form {
-    /* FIX: era display:flex, lo cambiamos a block para no romper el layout */
     display: block;
     max-width: 400px;
     margin-bottom: 20px;
@@ -245,8 +263,8 @@ html {
 }
 
 #mapa { 
-    margin-top: 30px;
-    height: 700px; 
+    margin-top: 10px;
+    height: 600px; 
     width: 100%;
     max-width: 700px;
     
