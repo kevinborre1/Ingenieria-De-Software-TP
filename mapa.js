@@ -1,4 +1,6 @@
-let mapa;
+export let mapa;
+export let marcadores = new Map();
+import { datos } from "./talleres.js";
 
 $(document).ready(function () {
     mapa = L.map('mapa').setView([-34.521676, -58.701182], 15);
@@ -6,12 +8,20 @@ $(document).ready(function () {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(mapa);
+    agregarMarcas(datos);
 
     window.addEventListener('resize', function() {
     if (mapa) {
         mapa.invalidateSize(); // Esto obliga al mapa a recalcular su tamaño actual
     }
 });
-
-
+     function agregarMarcas(datos){
+    datos.forEach(taller => {
+        const lat = parseFloat(taller.ubicacion[0]);
+        const lng = parseFloat(taller.ubicacion[1]);
+        const marcador = L.marker([lat, lng]).addTo(mapa);
+        marcador.bindPopup("<b>" + taller.nombre + "</b>");
+        marcadores.set(taller.nombre, marcador);
+    });
+}
 });

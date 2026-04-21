@@ -1,9 +1,19 @@
 import { datos } from "./talleres.js";
+import { mapa } from "./mapa.js";
+import { marcadores } from './mapa.js';
 
 const buscador = document.getElementById("form_busqueda");
 const inputBusqueda = document.getElementById("gsearch");
 const lista = document.getElementById("lista-talleres");
 
+document.addEventListener("DOMContentLoaded", () => {
+  function mostrarTodosLosTalleres() {       
+        const todos = datos;
+        mostrarTalleres(todos);
+  }
+  mostrarTodosLosTalleres();
+  agregarEventosTalleres();
+});
 
 buscador.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -16,8 +26,7 @@ buscador.addEventListener("submit", (e) => {
         );
 
         mostrarTalleres(resultados);
-        agregarEventosTalleres();
-
+    
         if (resultados.length === 0) {
             alert("No se encontraron talleres con ese nombre.");
         }
@@ -36,7 +45,6 @@ function mostrarTalleres(datos) {
         li.dataset.id = taller.id;
         li.dataset.descripcion = taller.descripcion; // Agregamos la descripción como un atributo de datos
 
-        // Mantenemos tu lógica de logo
         let logoHTML = taller.logo ? `<img src="${taller.logo}" alt="" style="width:30px; margin-right:10px;">` : '';
         li.innerHTML = `${logoHTML}<strong>${taller.nombre}</strong>`;
         mostrarDescripcion(taller, li);
@@ -62,21 +70,18 @@ function agregarEventosTalleres() {
 function seleccionarTaller(taller, elemento) {
 
     if (typeof mapa !== "undefined" && mapa && taller.ubicacion) {
+        const marcador = marcadores.get(taller.nombre);
         const lat = parseFloat(taller.ubicacion[0]);
         const lng = parseFloat(taller.ubicacion[1]);
-
         mapa.setView([lat, lng], 17);
-
-        const marcador = L.marker([lat, lng]).addTo(mapa);
-        marcador.bindPopup("<b>" + taller.nombre + "</b>");
         marcador.openPopup();
         marcador.on('click', function (e) {
 
-            const previo = document.querySelector('.taller-seleccionado');
-            if (previo) {
-                previo.classList.remove('taller-seleccionado');
-            }
-            elemento.classList.add('taller-seleccionado');
+        const seleccionado = document.querySelector('.taller-seleccionado');
+        if (seleccionado) {
+            seleccionado.classList.remove('taller-seleccionado');
+        }
+        elemento.classList.add('taller-seleccionado');
         });
     }
 }
