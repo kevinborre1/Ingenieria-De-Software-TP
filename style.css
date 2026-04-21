@@ -111,25 +111,34 @@ form {
 #form_busqueda {
     display: flex;
     align-items: center;
-    max-width: 400px;
-    margin-bottom: 20px;
+    max-width: 450px;
+    background-color: white;
+    border: 1px solid #e0e0e0; 
+    border-radius: 10px;       
+    padding: 4px;              
+    
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    
+    transition: all 0.3s ease;
 }
 
 #buscador_talleres {
-    font-size: 16px;
-    font-weight: bold;
     display: block;
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 10px; 
     margin-bottom: 10px;
+    color: #797979;
 }
 
 #gsearch {
     flex-grow: 1;
-    padding: 10px 15px;
-    border: 1px solid #ddd;
-    border-radius: 20px 0 0 20px; 
-    font-size: 1rem;
+    border: none;
+    background: transparent;
+    padding: 10px 20px;
+    font-size: 15px;
     outline: none; 
-    transition: border-color 0.3s;
 }
 
 #gsearch:focus {
@@ -137,17 +146,18 @@ form {
 }
 
 #btn_buscar_taller {
-    padding: 10px 20px;
-    background-color: #2c3e50; 
+    background-color: #3498db;
     color: white;
     border: none;
-    border-radius: 0 20px 20px 0;
+    border-radius: 5px; 
+    padding: 10px 25px;
+    font-weight: bold;
     cursor: pointer;
-    margin-left: -1px; 
+    transition: background 0.3s;
 }
 
 #btn_buscar_taller:hover {
-    background-color: #1a252f;
+    background-color: #2980b9;
 }
 
 #lista-talleres {
