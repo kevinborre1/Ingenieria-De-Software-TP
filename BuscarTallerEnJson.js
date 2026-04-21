@@ -26,7 +26,7 @@ buscador.addEventListener("submit", (e) => {
         );
 
         mostrarTalleres(resultados);
-    
+        agregarEventosTalleres();
         if (resultados.length === 0) {
             alert("No se encontraron talleres con ese nombre.");
         }
