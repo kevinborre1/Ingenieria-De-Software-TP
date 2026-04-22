@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   mostrarTodosLosTalleres();
   agregarEventosTalleres();
+  agregarEventosMarcadorEnMapa()
 });
 
 buscador.addEventListener("submit", (e) => {
@@ -42,12 +43,13 @@ function mostrarTalleres(datos) {
     const li = document.createElement("li");
     li.className = "taller-item";
     li.dataset.id = taller.id;
-    li.dataset.descripcion = taller.descripcion; // Agregamos la descripción como un atributo de datos
-
+    li.dataset.lat= parseFloat(taller.ubicacion[0]);
+     li.dataset.lng= parseFloat(taller.ubicacion[1]);
+    
     let logoHTML = taller.logo
       ? `<img src="${taller.logo}" alt="" style="width:30px; margin-right:10px;">`
       : "";
-    li.innerHTML = `${logoHTML}<strong>${taller.nombre}</strong>`;
+    li.innerHTML = `${logoHTML}<strong>${taller.nombre}</strong>${"⏰ Horarios: " + taller.horarios} <br> ${"📍 Ubicación:" + taller.ubicacion_nombre}`;
     mostrarDescripcion(taller, li);
     lista.appendChild(li);
   });
@@ -68,11 +70,12 @@ function agregarEventosTalleres() {
   });
 }
 
+
 function seleccionarTaller(taller, elemento) {
   if (typeof mapa !== "undefined" && mapa && taller.ubicacion) {
     const marcador = marcadores.get(taller.nombre);
-    const lat = parseFloat(taller.ubicacion[0]);
-    const lng = parseFloat(taller.ubicacion[1]);
+    const lat = elemento.dataset.lat;
+    const lng = elemento.dataset.lng;
     mapa.setView([lat, lng], 17);
     marcador.openPopup();
     marcador.on("click", function (e) {
@@ -100,9 +103,8 @@ function mostrarDescripcion(taller, itemDeLista) {
     <br>
     <p class="info-desc"><strong>Descripción:</strong> ${taller.descripcion || "Sin descripción."}</p>
         <div class="info-grid">
-            <span><strong>📍 Ubicación:</strong> ${taller.ubicacion_nombre || "Sin ubicación detallada."}</span>
-            <span><strong>⏰ Horarios:</strong> ${taller.horarios}</span>
             <span><strong>🏷️ Rubro:</strong> ${taller.rubro}</span>
+            <br>
             <span><strong>📧 Contacto:</strong> ${taller.contacto.email}</span>
         </div>
         <div class="info-redes">
@@ -121,7 +123,7 @@ function mostrarDescripcion(taller, itemDeLista) {
     // 3. Ahora sí podemos encontrarlo por su clase para borrarlo
     const descripcion = itemDeLista.querySelector(".informacion-temporal");
     if (descripcion) {
-      descripcion.remove(); // Más directo que removeChild
+      descripcion.remove(); 
     }
   });
 }
