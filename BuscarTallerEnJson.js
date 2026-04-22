@@ -7,11 +7,7 @@ const inputBusqueda = document.getElementById("gsearch");
 const lista = document.getElementById("lista-talleres");
 
 document.addEventListener("DOMContentLoaded", () => {
-  function mostrarTodosLosTalleres() {
-    const todos = datos;
-    mostrarTalleres(todos);
-  }
-  mostrarTodosLosTalleres();
+  mostrarTalleres(todos);
   agregarEventosTalleres();
   agregarEventosMarcadorEnMapa()
 });
