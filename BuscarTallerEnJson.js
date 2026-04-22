@@ -1,4 +1,4 @@
-import { datos } from "./talleres.js";
+import { talleresAceptados } from "./talleres.js";
 import { mapa } from "./mapa.js";
 import { marcadores } from "./mapa.js";
 
@@ -7,7 +7,7 @@ const inputBusqueda = document.getElementById("gsearch");
 const lista = document.getElementById("lista-talleres");
 
 document.addEventListener("DOMContentLoaded", () => {
-  mostrarTalleres(todos);
+  mostrarTalleres(talleresAceptados);
   agregarEventosTalleres();
   agregarEventosMarcadorEnMapa()
 });
