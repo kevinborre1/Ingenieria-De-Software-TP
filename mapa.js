@@ -1,6 +1,6 @@
 export let mapa;
 export let marcadores = new Map();
-import { datos } from "./talleres.js";
+import { talleresAceptados } from "./talleres.js";
 
 $(document).ready(function () {
     mapa = L.map('mapa').setView([-34.536687, -58.712918], 15);
@@ -8,7 +8,7 @@ $(document).ready(function () {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(mapa);
-    agregarMarcas(datos);
+    agregarMarcas(talleresAceptados);
 
     window.addEventListener('resize', function() {
     if (mapa) {
