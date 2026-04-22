@@ -43,8 +43,9 @@ function mostrarTalleres(datos) {
     const li = document.createElement("li");
     li.className = "taller-item";
     li.dataset.id = taller.id;
-    li.dataset.lat= parseFloat(taller.ubicacion[0]);
-     li.dataset.lng= parseFloat(taller.ubicacion[1]);
+    li.dataset.nombre = taller.nombre;
+    li.dataset.lat = parseFloat(taller.ubicacion[0]);
+    li.dataset.lng = parseFloat(taller.ubicacion[1]);
     
     let logoHTML = taller.logo
       ? `<img src="${taller.logo}" alt="" style="width:30px; margin-right:10px;">`
@@ -60,20 +61,17 @@ function agregarEventosTalleres() {
 
   talleresItems.forEach((item) => {
     item.addEventListener("click", () => {
-      const tallerId = parseInt(item.dataset.id, 10);
-      const taller = datos.find((t) => t.id === tallerId);
       desmarcarTallerSeleccionadoEnMapa();
-      if (taller) {
-        seleccionarTaller(taller, item);
-      }
+      seleccionarTaller(item);
+      
     });
   });
 }
 
 
-function seleccionarTaller(taller, elemento) {
-  if (typeof mapa !== "undefined" && mapa && taller.ubicacion) {
-    const marcador = marcadores.get(taller.nombre);
+function seleccionarTaller(elemento) {
+  if (typeof mapa !== "undefined" && mapa ) {
+    const marcador = marcadores.get(elemento.dataset.nombre);
     const lat = elemento.dataset.lat;
     const lng = elemento.dataset.lng;
     mapa.setView([lat, lng], 17);
