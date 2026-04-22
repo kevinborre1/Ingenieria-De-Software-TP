@@ -56,7 +56,7 @@
       <div class="contenido-oculto">
         <span class="cerrar">&times;</span>
 
-        <form id="form-registro-completo">
+        <form id="form-registro-completo" action="">
 
           <div id="paso-proveedor">
             <h2>Registro de Proveedor</h2>
@@ -81,7 +81,7 @@
             <input id="campo_rubro" type="text" required><br><br>
 
             <label for="campo_descripcion">Descripción</label><br>
-            <input id="campo_descripcion" type="text" required><br><br>
+            <textarea id="campo_descripcion" type="text"  maxlength="100" rows="6" cols="37" required></textarea><br><br>
 
             <label for="campo_actividades">Actividades ofrecidas</label><br>
             <input id="campo_actividades" type="text" required><br><br>
@@ -109,6 +109,7 @@
 
             <button type="button" id="btnVolver2">Atrás</button>
             <button type="submit" id="btnEnviar">Enviar Registro</button>
+             
           </div>
         </form>
       </div>
