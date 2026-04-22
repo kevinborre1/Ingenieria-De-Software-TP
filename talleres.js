@@ -1,4 +1,4 @@
-export const datos = [
+export const talleresAceptados = [
     { 
         "nombre": "Taller de Carpintería", 
         "id": 1, 
