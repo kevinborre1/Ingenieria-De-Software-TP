@@ -97,7 +97,7 @@
 
             <div id="div_direccion_otra" style="display:none;">
               <label for="campo_direccion_otra">Indicá la dirección</label><br>
-              <input id="campo_direccion_otra" type="text" placeholder="Ej: Club barrial, Plaza..."><br><br>
+              <input id="campo_direccion_otra" type="text" placeholder="Ej: Peron 637, Municipalidad..."><br><br>
             </div>
 
             <label for="campo_logo">Logo del taller(opcional)</label><br>
@@ -122,10 +122,42 @@
             <button type="submit" id="btnEnviar">Enviar Registro</button>
              
           </div>
+
+          <div id="paso-preview" style="display: none;">
+            <h2>¡Así quedará tu taller!</h2>
+            <div id="tarjeta-preview" style="background: var(--color-background-primary, #fff); border-radius: 12px; border: 1px solid #e0e0e0; max-width: 360px; margin: 0 auto; overflow: hidden;">
+
+              <div style="padding: 24px 20px 16px; text-align: center; border-bottom: 1px solid #e0e0e0;">
+                <img id="preview-logo" src="" alt="Logo" style="display:none; width:56px; height:56px; object-fit:cover; border-radius:50%; margin: 0 auto 12px;">
+                <p id="preview-nombre-taller" style="font-weight: bold; font-size: 16px; margin: 0 0 12px;"></p>
+                <div style="display:flex; align-items:flex-start; gap:6px; margin-bottom:6px; text-align:left;">
+                  <span>📍</span>
+                  <span id="preview-ubicacion" style="font-size:13px; color:#666;"></span>
+                </div>
+              </div>
+
+              <div style="padding: 16px 20px; border-bottom: 1px solid #e0e0e0;">
+                <p style="font-size:13px; margin: 0 0 10px;"><strong>Descripción:</strong> <span id="preview-descripcion"></span></p>
+                <p style="font-size:13px; margin: 0 0 8px;">🏷️ <strong>Rubro:</strong> <span id="preview-rubro"></span></p>
+                <p style="font-size:13px; margin: 0;">⚙️ <strong>Actividades:</strong> <span id="preview-actividades"></span></p>
+              </div>
+
+              <div style="padding: 16px 20px; border-bottom: 1px solid #e0e0e0;">
+                <p style="font-size:13px; margin: 0 0 8px;">📧 <strong>Contacto:</strong> <span id="preview-mail"></span></p>
+                <p style="font-size:13px; margin: 0;">📱 <strong>Tel:</strong> <span id="preview-telefono"></span></p>
+              </div>
+
+              <div style="padding: 16px 20px;">
+                <div id="preview-redes" style="font-size:13px;">🔗 <strong>Redes:</strong></div>
+              </div>
+
+            </div>
+            <br>
+          </div>
         </form>
       </div>
     </div>
-
+  </div>
 
 </body>
 

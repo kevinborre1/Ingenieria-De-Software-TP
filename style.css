@@ -345,6 +345,23 @@ html {
     transform: scale(1.02);
 }
 
+#tarjeta-preview {
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+  background: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+#tarjeta-preview h3 {
+  margin-top: 8px;
+  font-size: 1.3rem;
+}
+
+#tarjeta-preview p {
+  margin: 6px 0;
+}
 
 
 
