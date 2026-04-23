@@ -86,8 +86,18 @@
             <label for="campo_actividades">Actividades ofrecidas</label><br>
             <input id="campo_actividades" type="text" required><br><br>
 
-            <label for="campo_ubicacion">Ubicación</label><br>
-            <input id="campo_ubicacion" type="text" required><br><br>
+            <label for="campo_ubicacion_tipo">Ubicación</label><br>
+           
+            <select id="campo_ubicacion_tipo" required>
+              <option value="">-- Seleccioná una opción --</option>
+              <option value="sede">Sede</option>
+              <option value="otra">Otra</option>
+            </select><br><br>
+
+            <div id="div_direccion_otra" style="display:none;">
+              <label for="campo_direccion_otra">Indicá la dirección</label><br>
+              <input id="campo_direccion_otra" type="text" placeholder="Ej: Club barrial, Plaza..."><br><br>
+            </div>
 
             <label for="campo_logo">Logo del taller(opcional)</label><br>
             <input id="campo_logo" type="file" accept="image/*"><br><br>
