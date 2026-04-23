@@ -7,9 +7,8 @@ const inputBusqueda = document.getElementById("gsearch");
 const lista = document.getElementById("lista-talleres");
 
 document.addEventListener("DOMContentLoaded", () => {
-  mostrarTalleres(talleresAceptados);
+  crearTarjetaDeTaller(talleresAceptados);
   agregarEventosTalleres();
-  agregarEventosMarcadorEnMapa()
 });
 
 buscador.addEventListener("submit", (e) => {
@@ -22,7 +21,7 @@ buscador.addEventListener("submit", (e) => {
       taller.nombre.toLowerCase().includes(terminoBusqueda),
     );
 
-    mostrarTalleres(resultados);
+    crearTarjetaDeTaller(resultados);
     agregarEventosTalleres();
     if (resultados.length === 0) {
       alert("No se encontraron talleres con ese nombre.");
@@ -32,7 +31,7 @@ buscador.addEventListener("submit", (e) => {
   }
 });
 
-function mostrarTalleres(datos) {
+function crearTarjetaDeTaller(datos) {
   lista.innerHTML = "";
 
   datos.forEach((taller) => {
@@ -55,28 +54,35 @@ function mostrarTalleres(datos) {
 function agregarEventosTalleres() {
   const talleresItems = document.querySelectorAll(".taller-item");
 
-  talleresItems.forEach((item) => {
-    item.addEventListener("click", () => {
+  talleresItems.forEach((tarjetaDeTaller) => {
+    
+    tarjetaDeTaller.addEventListener("click", () => {
       desmarcarTallerSeleccionadoEnMapa();
-      seleccionarTaller(item);
-      
+      marcarUbicacionEnMapa(tarjetaDeTaller);
     });
+     enlazarTallerConMarcador(tarjetaDeTaller);  
   });
+  
 }
 
 
-function seleccionarTaller(elemento) {
+function marcarUbicacionEnMapa(elemento) {
   if (typeof mapa !== "undefined" && mapa ) {
     const marcador = marcadores.get(elemento.dataset.nombre);
     const lat = elemento.dataset.lat;
     const lng = elemento.dataset.lng;
     mapa.setView([lat, lng], 17);
     marcador.openPopup();
-    marcador.on("click", function (e) {
-      desmarcarTallerSeleccionadoEnMapa();
-      elemento.classList.add("taller-seleccionado");
-    });
   }
+}
+
+function enlazarTallerConMarcador(tarjetaDeTaller) {
+  const marcador = marcadores.get(tarjetaDeTaller.dataset.nombre); 
+  if (!marcador) return;
+  marcador.on("click", function () {
+    desmarcarTallerSeleccionadoEnMapa();
+    tarjetaDeTaller.classList.add("taller-seleccionado");
+  });
 }
 
 function desmarcarTallerSeleccionadoEnMapa() {

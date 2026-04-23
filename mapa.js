@@ -2,7 +2,7 @@ export let mapa;
 export let marcadores = new Map();
 import { talleresAceptados } from "./Talleres.js";
 
-$(document).ready(function () {
+document.addEventListener("DOMContentLoaded", function () {
     mapa = L.map('mapa').setView([-34.536687, -58.712918], 15);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
@@ -24,4 +24,5 @@ $(document).ready(function () {
         marcadores.set(taller.nombre, marcador);
     });
 }
+
 });
