@@ -1,4 +1,4 @@
-/* Reset para eliminar espacios raros */
+
 
 * {
     margin: 0;
@@ -15,7 +15,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 40px; /* Añadimos padding a los lados para que el botón no toque el borde */
+    padding: 20px 40px; 
     background-color: #ffffff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
     margin-bottom: 20px;
@@ -26,12 +26,12 @@ body {
     flex: 0.3;
 }
 #centro_cultural {
-    text-align: left;        /* Cambiado de center a left */
-    margin: 10px 0 5px 20px; /* Margen: arriba, derecha, abajo, izquierda */
-    color: #888;             /* Un gris un poco más suave para que no compita con el título */
-    font-size: 1.4rem;         /* Tamaño reducido para que parezca un sobre-título */
+    text-align: left;        
+    margin: 10px 0 5px 20px; 
+    color: #888;            
+    font-size: 1.4rem;        
     font-weight: 500;
-    text-transform: uppercase; /* Opcional: le da un toque más profesional */
+    text-transform: uppercase; 
     letter-spacing: 1px;
 }
 #Titulo {
@@ -39,9 +39,9 @@ body {
     text-align: center;
     color: #006fdd;
     font-size: 2.5rem;
-    margin: 0;        /* Quitamos márgenes que puedan moverlo */
-    padding: 0;       /* El padding lo maneja el contenedor padre */
-    box-shadow: none; /* Quitamos la sombra aquí porque ya la tiene el padre */
+    margin: 0;        
+    padding: 0;       
+    box-shadow: none; 
     transition: all 0.3s ease;
 }
 
@@ -75,7 +75,7 @@ body {
     font-weight: bold;
     cursor: pointer;
     display: block;      
-    margin: 20px 20px 20px 10px; /* Arriba: 20px, Derecha: 10px, Abajo: 20px, Izquierda: 10px */ 
+    margin: 20px 20px 20px 10px; 
     box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
     transition: all 0.3s ease;
 }
@@ -166,7 +166,7 @@ form {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    z-index: 1; /* Capa base */
+    z-index: 1; 
 }
 
 #lista-talleres li{
@@ -179,13 +179,13 @@ form {
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     border-left: 4px solid #3498db;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    z-index: 1; /* Capa base */
+    z-index: 1; 
 }
 #lista-talleres li:hover {
-    transform: scale(1.05); /* Se agranda un 5% sin mover al resto */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Sombra más profunda para dar profundidad */
-    z-index: 10; /* Se pone por encima de los demás para que no lo tapen */
-    background-color: white; /* Asegura que no sea transparente */
+    transform: scale(1.05); 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
+    z-index: 10; 
+    background-color: white; 
 }
 
 
@@ -278,16 +278,16 @@ html {
     width: 100%;
     max-width: 700px;
     
-    /* Bordes redondeados */
+    
     border-radius: 20px; 
     
-    /* ESTO ES CLAVE: Corta el contenido que se salga de las esquinas */
+    
     overflow: hidden; 
     
-    /* Opcional: Un borde sutil para que se vea más prolijo */
+    
     border: 2px solid #ddd;
     
-    /* Opcional: Una sombra suave para que haga juego con tus tarjetas */
+
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
@@ -309,26 +309,26 @@ html {
 }
 
 .informacion-temporal {
-    position: absolute; /* ¡ESTO es lo que evita que los otros crezcan! */
-    top: 100%;         /* Aparece justo donde termina el li */
+    position: absolute; 
+    top: 100%;         
     left: 0;
-    width: 100%;       /* Ocupa el mismo ancho que el li */
+    width: 100%;       
     background-color: white;
     padding: 20px;
-    border-radius: 0 0 10px 10px; /* Redondeamos solo abajo */
+    border-radius: 0 0 10px 10px; 
     box-shadow: 0 15px 30px rgba(0,0,0,0.15);
     border: 1px solid #eee;
     border-top: none;
-    pointer-events: none; /* Para que no interfiera si quieres clickear abajo */
+    pointer-events: none; 
 }
-/* Para que los datos no estén pegados */
+
 .informacion-temporal p, 
 .informacion-temporal div {
     font-size: 18px;
     margin-bottom: 5px;
 }
 
-/* Estilo para las redes sociales con separadores */
+
 .info-redes span {
     color: #007bff;
     font-weight: 500;
@@ -340,8 +340,8 @@ html {
 }
 
 .taller-seleccionado {
-    background-color: #e0e0e0 !important; /* Gris */
-    border-left: 4px solid #2ecc71 !important; /* Cambiamos el borde a verde por ejemplo */
+    background-color: #e0e0e0 !important; 
+    border-left: 4px solid #2ecc71 !important; 
     transform: scale(1.02);
 }
 

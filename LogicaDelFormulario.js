@@ -27,7 +27,6 @@ window.addEventListener('click', (event) => {
 
 btnSiguiente.addEventListener('click', () => {
   const inputsPaso1 = paso1.querySelectorAll("input, select, textarea");
-
   let esValido = true;
 
   for (let input of inputsPaso1) {
@@ -40,12 +39,13 @@ btnSiguiente.addEventListener('click', () => {
   if (esValido) {
     paso1.style.display = 'none';
     paso2.style.display = 'block';
+    document.getElementById("img_formulario").src = "dist/images/form2.png";
   }
+
 });
 
 btnSiguiente2.addEventListener('click', () => {
   const inputsPaso2 = paso2.querySelectorAll("input, select, textarea");
-
   let esValido = true;
 
   for (let input of inputsPaso2) {
@@ -58,17 +58,20 @@ btnSiguiente2.addEventListener('click', () => {
   if (esValido) {
     paso2.style.display = 'none';
     paso3.style.display = 'block';
+    document.getElementById("img_formulario").src = "dist/images/form3.png";
   }
 });
 
 btnVolver.addEventListener('click', () => {
   paso2.style.display = 'none';
   paso1.style.display = 'block';
+  document.getElementById("img_formulario").src = "dist/images/form1.png";
 });
 
 btnVolver2.addEventListener('click', () => {
   paso3.style.display = 'none';
   paso2.style.display = 'block';
+  document.getElementById("img_formulario").src = "dist/images/form2.png";
 });
 
 const inputLogo = document.getElementById("campo_logo");
@@ -83,7 +86,6 @@ formulario.addEventListener('submit', (e) => {
   miOculto.style.display = 'none'; 
 });
 
-// 🔥 ESTO ES LO IMPORTANTE (tu funcionalidad)
 document.getElementById("campo_ubicacion_tipo").addEventListener("change", function () {
   const divOtra = document.getElementById("div_direccion_otra");
   const inputOtra = document.getElementById("campo_direccion_otra");

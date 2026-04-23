@@ -12,7 +12,7 @@ $(document).ready(function () {
 
     window.addEventListener('resize', function() {
     if (mapa) {
-        mapa.invalidateSize(); // Esto obliga al mapa a recalcular su tamaño actual
+        mapa.invalidateSize(); 
     }
 });
      function agregarMarcas(datos){
