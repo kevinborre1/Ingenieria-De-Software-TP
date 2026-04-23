@@ -1,6 +1,6 @@
-import { talleresAceptados } from "./talleres.js";
-import { mapa } from "./mapa.js";
-import { marcadores } from "./mapa.js";
+import { talleresAceptados } from "./Talleres.js";
+import { mapa } from "./Mapa.js";
+import { marcadores } from "./Mapa.js";
 
 const buscador = document.getElementById("form_busqueda");
 const inputBusqueda = document.getElementById("gsearch");

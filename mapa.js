@@ -1,6 +1,6 @@
 export let mapa;
 export let marcadores = new Map();
-import { talleresAceptados } from "./talleres.js";
+import { talleresAceptados } from "./Talleres.js";
 
 $(document).ready(function () {
     mapa = L.map('mapa').setView([-34.536687, -58.712918], 15);
